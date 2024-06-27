@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to Base64 Converter</title>
+</head>
+<body>
+    <h1>Image to Base64 Converter</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".png, .jpg, .jpeg" required>
+        <button type="submit">Convert to Base64</button>
+    </form>
+
+    {% if base64_image %}
+        <h2>Base64 Representation:</h2>
+        <textarea rows="10" cols="50">{{ base64_image }}</textarea>
+        <img src="data:image/png;base64,{{ base64_image }}" alt="Converted Image">
+    {% endif %}
+</body>
+</html>
